@@ -1,0 +1,246 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Study</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Entertainment
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Movies</a>
+          <a class="dropdown-item" href="#">Songs</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Funny</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav navbar-right" *ngIf="!user">
+      <li class="nav-item">
+          <a  class="nav-link" data-toggle="modal" data-target="#myModal" (click)="signIn('siginin')">Sign In</a>
+      </li>
+      <li class="nav-item">
+          <a  class="nav-link" data-toggle="modal" data-target="#myModal" (click)="signUp('signup')">Sign Up</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav navbar-right" *ngIf="user">
+      <li class="nav-item">
+          <a  class="nav-link" >Welcome {{user.name}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div *ngIf="!authentication.USER">  
+  <div *ngIf="dialouge=='siginin'">
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title"> Welcome to the {{title}}</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Enter Your login details</p>
+            <div class="row">
+              <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-3 form-label">
+                        <label >
+                          <span class="fa fa-user"></span> 
+                          <b>Username:</b>
+                        </label>
+                      </div>
+                      <div class="col-md-8">
+                        <input type="text" name="userid" [(ngModel)]="username" class="form-control" placeholder="shaheer">
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-3 form-label">
+                      <label >
+                        <span class="fa fa-lock"></span> 
+                        <b>Password:</b>
+                      </label>
+                    </div>
+                    <div class="col-md-8">
+                      <input type="Password" name="userpassword" [(ngModel)]="password" class="form-control" placeholder="Password">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix">
+              <div class="col-md-12 form-button">
+                <button class="form-control btn btn-success" [attr.data-dismiss]="user" (click)="login()">Login</button>
+              </div>
+            </div>
+            <div class="clearfix padding-t-5">
+              <div class="col-md-12">
+                  <a  href="#" (click)="forgetPassword()">Forget your password</a>
+              </div>
+            </div>
+            <div class="clearfix padding-t-5">
+              <div class="col-md-12">
+                <a href="#" (click)="signUp()">Not a member ? Register</a>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div *ngIf="dialouge=='signup'">
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title"> Welcome to the {{title}}</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Enter Your details</p>
+            <div class="row">
+              <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-3 form-label">
+                        <label >
+                          <b>Name:</b>
+                        </label>
+                      </div>
+                      <div class="col-md-8">
+                        <input type="text" name="name" [(ngModel)]="name" class="form-control" placeholder="shaheer">
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-3 form-label">
+                        <label > 
+                          <b>Username:</b>
+                        </label>
+                      </div>
+                      <div class="col-md-8">
+                        <input type="text" name="username" [(ngModel)]="username" class="form-control" placeholder="shaheer">
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-3 form-label">
+                        <label >
+                          <b>Email:</b>
+                        </label>
+                      </div>
+                      <div class="col-md-8">
+                        <input type="email" name="email" [(ngModel)]="email" class="form-control" placeholder="shaheer">
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-3 form-label">
+                        <label > 
+                          <b>Phone Number</b>
+                        </label>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="row">
+                          <div class="col-md-5 padding-r-5">
+                            <select class="form-control" [(ngModel)]="phonecode">
+                              <option *ngFor="let country of countries" value="{{country.dial_code}}">{{country.name || Country}}</option>
+                            </select>
+                          </div>
+                          <div class="col-md-7 padding-l-5">
+                            <input type="number" name="phone" [(ngModel)]="phonenumber" class="form-control" placeholder="shaheer">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-3 form-label">
+                      <label >
+                        <b>Password:</b>
+                      </label>
+                    </div>
+                    <div class="col-md-8">
+                      <input type="Password" name="password" [(ngModel)]="password" class="form-control" placeholder="Password">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-3 form-label">
+                      <label > 
+                        <b>Confirm Password:</b>
+                      </label>
+                    </div>
+                    <div class="col-md-8">
+                      <input type="Password" name="cpassword" [(ngModel)]="cpassword" class="form-control" placeholder="Password">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>          
+            <div class="clearfix">
+              <div class="col-md-12 form-button">
+                <button class="form-control btn btn-success" [disabled]="!(password==cpassword)" (click)="register()">Register</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>  
+</div>
+{{authentication.USER}}
+<!-- <app-signin></app-signin> -->
+<router-outlet></router-outlet>

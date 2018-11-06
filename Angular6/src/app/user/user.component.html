@@ -1,0 +1,62 @@
+<div class="container padding-t-20">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="row">
+				<div class="col-md-12">
+					<img src="./assets/images/shaheer.jpg" alt="Image is taking time to load"  class="img-thumbnail">
+				</div>
+			</div>
+			<!-- <div class="clearfix padding-t-20">
+					<button class="btn btn-primary form-control">change</button>
+			</div>
+			<div class="clearfix padding-t-20 .padding-lr-30 ">
+					<button class="btn btn-success form-control">upload</button>
+			</div> -->
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="h2">Shaheer Khan </h2>
+				</div>
+				<div class="col-md-12">
+					<p>
+						here goes the simple bio in 2-3 lihere goes the simple bio in 2-3 lineshere goes the simple bio in 2-3 lineshere goes the simple bio in 2-3 lineshere goes the simple bio in 2-3 lines
+					</p><br>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="row">
+				<div class="form-goup">
+					<div class="form-inline">
+						<a (click)="link('profile')" class=" link btn btn-md btn-default">
+							Profile  <span class="badge badge-pill badge-secondary">1</span>
+						</a>
+						<a (click)="link('education')" class=" link btn btn-md btn-default">
+							Education  <span class="badge badge-pill badge-secondary">1</span>
+						</a>
+						<a (click)="link('settings')" class=" link btn btn-md btn-default">
+							Settings  <span class="badge badge-pill badge-secondary">1</span>
+						</a>
+						<a (click)="link('profile')" class=" link btn btn-md btn-default">
+							Overview  <span class="badge badge-pill badge-secondary">1</span>
+						</a>
+						<a (click)="link('profile')" class=" link btn btn-md btn-default">
+							Overview  <span class="badge badge-pill badge-secondary">1</span>
+						</a>
+						
+					</div>
+				</div>
+			</div>	
+			<div [ngSwitch]="url">
+				<div *ngSwitchCase="'profile'">
+					<app-profile></app-profile>
+				</div>
+				<div *ngSwitchCase="'education'">
+					<app-education></app-education>
+				</div>
+				<div *ngSwitchCase="'settings'">
+					<app-settings></app-settings>
+				</div>
+			</div>
+		</div>	
+	</div>
+</div>
