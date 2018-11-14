@@ -7,7 +7,7 @@ app.use(cors())
 app.use(express.urlencoded());
 app.use(express.json());
 
-db=mongoose.connect('mongodb://localhost:27017/angular', { useNewUrlParser: true });
+db=mongoose.connect('mongodb://shaheerkhan:weKlZoUtgEcmDB7NqXLHlGIItGJTDjevJkNY0vtJKWMhzTgeRBZFzdTVpgwxT9uPGRIbc1FkZgtM70dB2Hy1jw%3D%3D@shaheerkhan.documents.azure.com:10255/?ssl=true');
 
 app.post('/login',function(req,res){
 	// console.log("nodeJS "+req.body)
