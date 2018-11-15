@@ -9,7 +9,8 @@ var userSchema =new mongoose.Schema({
 });
 users=mongoose.model("users",userSchema);
 
-	var user='';
+var user='';
+
 exports.Login=function(req){
 	users.findOne({"email":req.email,"password":req.password} ,function(err,data){
 		user=data;
