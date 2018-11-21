@@ -3,7 +3,7 @@
 		<div class="col-md-4">
 			<div class="row">
 				<div class="col-md-12">
-					<img src="./assets/images/shaheer.jpg" alt="Image is taking time to load"  class="img-thumbnail">
+					<img src="./assets/images/shaher.jpg" alt="Image is taking time to load"  class="img-thumbnail">
 				</div>
 			</div>
 			<!-- <div class="clearfix padding-t-20">
@@ -36,8 +36,8 @@
 						<a (click)="link('settings')" class=" link btn btn-md btn-default">
 							Settings  <span class="badge badge-pill badge-secondary">1</span>
 						</a>
-						<a (click)="link('profile')" class=" link btn btn-md btn-default">
-							Overview  <span class="badge badge-pill badge-secondary">1</span>
+						<a (click)="link('posts')" class=" link btn btn-md btn-default">
+							Posts  <span class="badge badge-pill badge-secondary">1</span>
 						</a>
 						<a (click)="link('profile')" class=" link btn btn-md btn-default">
 							Overview  <span class="badge badge-pill badge-secondary">1</span>
@@ -55,6 +55,9 @@
 				</div>
 				<div *ngSwitchCase="'settings'">
 					<app-settings></app-settings>
+				</div>
+				<div *ngSwitchCase="'posts'">
+					<app-posts></app-posts>
 				</div>
 			</div>
 		</div>	

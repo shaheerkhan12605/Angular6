@@ -12,10 +12,10 @@ export class AuthenticationService {
   	console.log("login")
   	return this.http.post(this.uri+'/login/',user).subscribe(data=>{
   		// this.setUser(data);
-      console.log(data)
       if(data){
         localStorage.setItem("isLoggedIn","true");
         localStorage.setItem("id",data._id);
+        // console.log(data)
       }
       console.log(localStorage.getItem("id"))
   	});
@@ -24,6 +24,16 @@ export class AuthenticationService {
 		console.log("sign up");
 		return this.http.post(this.uri+'/signup/',user);
 	}  	
+  // createPost=function(data){
+  //   console.log(data)
+  //   var post={
+  //     "user":localStorage.getItem('id'),
+  //     "time":Date.now(),
+  //     "post":data
+  //   };
+
+  //   return this.http.post(this.uri+'/post',post);
+  // }
 
   constructor(private http:HttpClient){} 
 

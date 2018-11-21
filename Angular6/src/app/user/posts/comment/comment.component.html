@@ -1,0 +1,29 @@
+
+<div *ngFor="let comment of comments">
+	<div *ngFor="let com of comment">
+		<div *ngFor="let data of com.comments">
+			<div class="row jumbotron padding-t-20 margin-t-20 padding-b-20">
+				<div class="col-md-12">
+					<p class="form-control">{{data.comment}}</p>
+				</div>
+				<div class="col-md-12">
+					<p class="form-control"><small>{{data.time | date:'medium'}}</small></p>
+				</div>
+			</div>
+		</div>
+	</div>	 	
+</div>
+<div class="row padding-t-20">
+	<div class="col-md-12">
+		<p class="btn btn-sm btn-default" (click)="viewComment(postId)">View Comments</p>
+	</div>
+</div>
+
+ <div class="row padding-t-20">
+	<div class="col-md-8">
+		<input type="text" [(ngModel)]="newcomment" class="form-control">
+	</div>
+	<div class="col-md-3">
+		<button class="btn btn-info" (click)="uploadComment(postId)"> Comment</button>
+	</div>
+</div>

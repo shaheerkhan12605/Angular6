@@ -11,6 +11,7 @@ export class AppComponent {
   dialouge='signin';
   username='';	  
   password='';
+  id
   loggedIn;
   constructor(private authentication:AuthenticationService){
     this.loggedIn=localStorage.getItem("isLoggedIn");
@@ -33,7 +34,8 @@ export class AppComponent {
       email:this.username,
       password:this.password
     };
-    this.authentication.login(credentials);     
+    this.authentication.login(credentials);
+
   }
   register=function(){
     let phone=this.phonecode+this.phonenumber;

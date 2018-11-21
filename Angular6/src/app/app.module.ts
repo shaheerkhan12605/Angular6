@@ -11,6 +11,9 @@ import { EducationComponent } from './user/education/education.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { FormsModule } from '@angular/forms';
 import {AuthenticationService } from './authentication.service';
+import {PostService } from './post.service';
+import { PostsComponent } from './user/posts/posts.component';
+import { CommentComponent } from './user/posts/comment/comment.component';
 
 const routes:Routes=[
   {
@@ -25,6 +28,8 @@ const routes:Routes=[
     ProfileComponent,
     EducationComponent,
     SettingsComponent,
+    PostsComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,8 @@ const routes:Routes=[
     HttpClientModule
   ],
   providers: [
+  PostService,
+  AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

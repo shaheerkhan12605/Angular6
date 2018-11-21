@@ -1,0 +1,73 @@
+<div class="container" *ngIf="loggedin">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="h1">
+				Create a post 
+			</h1>
+		</div>
+	</div>
+	<div class="row">	
+		<div class="col-md-9">
+			<input type="text" name="posts" [(ngModel)]="post" class="form-control create-post">
+		</div>
+		<div class="col-md-3 ">
+				<button class="btn btn-primary" (click)="upload(post)">Upload Post</button>
+		</div>
+	</div>	
+	
+	<div *ngFor="let post of allpost" class="margin-t-20">
+		<div class="row">
+			<div class="col-md-12 margin-t-20">
+				<input type="text" name="post" [(ngModel)]="post.post" class="form-control" [disabled]="!update">
+			</div>
+		</div>
+		<div class="clearfix">
+			<div class="col-md-12 form-control">
+				{{post.time  | date: 'medium'}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 padding-t-20">
+				<div class="btn btn-primary" (click)="setComments(post._id)" >
+					Get Comments
+				</div>
+			</div>
+			<div class="col-md-4 padding-t-20">
+				<button class="btn btn-danger" (click)="deletePost(post)"[hidden]="update" >Delete Post</button>
+			</div>
+			<div class="col-md-4 padding-t-20">
+				<button class="btn btn-warning" (click)="editPost()" [hidden]="update">Edit Post</button>
+				<button class="btn btn-info" (click)="updatePost(post)" [hidden]="!update">Update Post</button>
+			</div>
+			<div *ngIf="coment">
+				<app-comment postId="{{post._id}}" ></app-comment>
+			</div>
+		</div>
+		<!-- <button (click)="setComments(post.comments)">get commentns</button> -->
+		
+		<!-- <div *ngFor="let comm of post.comments;" class="margin-t-20 jumbotron">
+			<div class="row">
+				<div class="col-md-8">
+					<p class="form-control">	{{comm.comment}}</p>
+				</div>			
+				<div class="col-md-4">
+					<p class="form-control">	{{comm.time | date:'medium'}}</p>
+				</div>			
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 padding-t-20">
+				<div class="row">
+					<div class="col-md-8">
+						<input type="text" name="comment" [(ngModel)]="commenttext" class="form-control">
+					</div>
+					<div class="col-md-4">
+						<button class="btn btn-succes" (click)="comment(post,commenttext)">Comment</button>
+					</div>
+				</div>
+
+			</div>
+		</div> -->
+	</div>	
+
+</div>
